@@ -76,7 +76,7 @@ st.markdown("""
 
 def Price_vs_CPUType(): 
   plt.figure(figsize=(10, 6))
-  sns.boxplot(x='CPU_Type', y='Price (Euro)', df=data)
+  sns.boxplot(x='CPU_Type', y='Price (Euro)', data=df)
   plt.xticks(rotation=90)
   plt.title('Comparison of Laptop Price vs CPU_Type')
   plt.xlabel('CPU Type')
@@ -92,7 +92,7 @@ df['Resolution'] = df['ScreenResolution'].apply(extract_resolution)
 
 def Price_vs_ScreenReso():
   plt.figure(figsize=(10, 6))
-  sns.boxplot(x='Resolution', y='Price (Euro)', df=data)
+  sns.boxplot(x='Resolution', y='Price (Euro)', data=df)
   plt.xticks(rotation=90)
   plt.title('Comparison of Laptop Price vs Screen Resolution')
   plt.xlabel('Screen Resolution')
