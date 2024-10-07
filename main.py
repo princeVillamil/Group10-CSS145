@@ -104,7 +104,7 @@ st.header("Price Vs. CPU Type")
 Price_vs_CPUType()
 st.markdown("""    
   **Observations:**\n
-  Comparing the Laptop price to the CPU Type, we can generally see that higher generation CPUs corresponds to much more expensive laptops. **Core i7** processors can be generally found within higher-priced laptops with its median price higher than other CPU types. **Core i5** processors have a much wider price range, which indicates that Core i5 CPUs are generally used within mid-range and higher-end priced laptops. **Core M** CPUs tend to be in the lower price range, likely due to their use in more lightweight and less powerful machines, such as thin ultrabooks. **Core i3** processors' price range are narrower, and they are found mostly in lower-priced models.
+  Comparing the Laptop price to the CPU Type, we can generally see that higher generation CPUs corresponds to much more expensive laptops. \n**Core i7** processors can be generally found within higher-priced laptops with its median price higher than other CPU types. \n**Core i5** processors have a much wider price range, which indicates that Core i5 CPUs are generally used within mid-range and higher-end priced laptops. \n**Core M** CPUs tend to be in the lower price range, likely due to their use in more lightweight and less powerful machines, such as thin ultrabooks. \n**Core i3** processors' price range are narrower, and they are found mostly in lower-priced models.
   """)
 
 st.header("Price Vs. Screen Resolution")
@@ -117,7 +117,7 @@ st.markdown("""
 st.header("Conclusion")
 st.markdown("""    
   **Conclusion:** \n
-  **CPU Type**: Laptops with more advanced CPUs (e.g., Core i7) tend to have higher prices. Budget laptops are more likely to feature lower generation CPUs. **Screen Resolution**: Higher screen resolutions are associated with more expensive laptops, suggesting that display quality is an important feature in premium devices. Full HD resolution is common across both mid-range and high-end laptops.
+  **CPU Type**: Laptops with more advanced CPUs (e.g., Core i7) tend to have higher prices. Budget laptops are more likely to feature lower generation CPUs. \n**Screen Resolution**: Higher screen resolutions are associated with more expensive laptops, suggesting that display quality is an important feature in premium devices. Full HD resolution is common across both mid-range and high-end laptops.
   """)
 
 
