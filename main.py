@@ -169,35 +169,42 @@ def scatter_price_vs_gpucomp():
   plt.xlabel('Weight (kg)')
   plt.ylabel('Price (Euro)')
   plt.grid(True)
-  plt.show()
+  st.pyplot() 
 
 def scatter_price_vs_RAM_by_company():
-    plt.figure(figsize=(12, 10))
+  plt.figure(figsize=(12, 10))
 
-    # Get unique companies and plot
-    companies = df['Company'].unique()
-    colors = plt.cm.get_cmap('tab20', len(companies))
+  # Get unique companies and plot
+  companies = df['Company'].unique()
+  colors = plt.cm.get_cmap('tab20', len(companies))
 
-    for i, company in enumerate(companies):
-        subset = df[df['Company'] == company]
-        plt.scatter(subset['RAM (GB)'], subset['Price (Euro)'], color=colors(i), label=company, alpha=1, edgecolors='w', linewidth=0.5)
+  for i, company in enumerate(companies):
+      subset = df[df['Company'] == company]
+      plt.scatter(subset['RAM (GB)'], subset['Price (Euro)'], color=colors(i), label=company, alpha=1, edgecolors='w', linewidth=0.5)
 
-    # Add plot details
-    plt.title('Price vs. RAM by Company')
-    plt.xlabel('RAM (GB)')
-    plt.ylabel('Price (Euro)')
-    plt.legend(title='Company', bbox_to_anchor=(1.05, 1), loc='upper left')
-    plt.grid(True)
-    plt.tight_layout()
+  # Add plot details
+  plt.title('Price vs. RAM by Company')
+  plt.xlabel('RAM (GB)')
+  plt.ylabel('Price (Euro)')
+  plt.legend(title='Company', bbox_to_anchor=(1.05, 1), loc='upper left')
+  plt.grid(True)
+  plt.tight_layout()
 
-    # Show the plot
-    plt.show()
+  # Show the plot
+  st.pyplot() 
 
 # call
-scatter_price_vs_gpucomp()
-scatter_price_vs_RAM_by_company()
 
-st.header("Price vs GPU Company, Price vs CPU RAM by Company")
+st.header("Price vs GPU Company")
+scatter_price_vs_gpucomp()
+st.markdown("""    
+  **OBSERVATIONS AND CONCLUSION**  
+nvidia offers the most expensive GPUS, and AMD only offers cheap ones, with intel offering up to 3.1k euro gpus.
+
+ASUS suprisingly offers 64 GB RAM for only 4k euro when Razer offers 32 GB for 6k, but generally, the more RAM, the more it costs.""")
+
+st.header("Price vs CPU RAM by Company")
+scatter_price_vs_RAM_by_company()
 st.markdown("""    
   **OBSERVATIONS AND CONCLUSION**  
 nvidia offers the most expensive GPUS, and AMD only offers cheap ones, with intel offering up to 3.1k euro gpus.
