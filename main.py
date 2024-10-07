@@ -47,11 +47,11 @@ st.header("Price Vs. Weight Scatter Plot")
 scatter_price_vs_weight()
 st.markdown("""    
   **Observations:**  
-  1. This scatter plot will illustrate the correlation between a laptop's price and weight. From this graph, it can be observed that weight plays a significant role in its price. As you can see, as the weight of laptops increases, it will lead to higher prices. I can assume that heavier laptops contain additional features such as larger screens, larger batteries, and overall better hardware, which can significantly change the price.
+    This scatter plot will illustrate the correlation between a laptop's price and weight. From this graph, it can be observed that weight plays a significant role in its price. As you can see, as the weight of laptops increases, it will lead to higher prices. I can assume that heavier laptops contain additional features such as larger screens, larger batteries, and overall better hardware, which can significantly change the price.
 """)
 st.markdown("""    
   **Conclusion:**  
-  1. In conclusion, being able to understand this correlation is crucial for consumers in order to find the best laptop in the market for their budget. On the other hand, if you were the manufacturer, it would also be possible to use this as an advantage for your laptops. For example, making larger laptops for a cheaper price may attract consumers.
+    In conclusion, being able to understand this correlation is crucial for consumers in order to find the best laptop in the market for their budget. On the other hand, if you were the manufacturer, it would also be possible to use this as an advantage for your laptops. For example, making larger laptops for a cheaper price may attract consumers.
 """)
 
 
@@ -116,79 +116,46 @@ st.markdown("""
 
 
 def scatter_price_vs_memory():
-    plt.figure(figsize=(10, 6))
-    plt.scatter(df['Memory'], df['Price (Euro)'], color='black')
-    plt.title('Laptop Price vs. Memory')
-    plt.xlabel('Memory')
-    plt.ylabel('Price (Euro)')
-    plt.xticks(rotation=90)
-    plt.grid(True)
-    plt.show()
+  plt.figure(figsize=(10, 6))
+  plt.scatter(df['Memory'], df['Price (Euro)'], color='black')
+  plt.title('Laptop Price vs. Memory')
+  plt.xlabel('Memory')
+  plt.ylabel('Price (Euro)')
+  plt.xticks(rotation=90)
+  plt.grid(True)
+  st.pyplot() 
 
 def scatter_price_vs_ram():
-    plt.figure(figsize=(10, 6))
-    plt.scatter(df['RAM (GB)'], df['Price (Euro)'], color='black')
-    plt.title('Laptop Price vs. RAM')
-    plt.xlabel('RAM (GB)')
-    plt.ylabel('Price (Euro)')
-    plt.grid(True)
-    plt.show()
+  plt.figure(figsize=(10, 6))
+  plt.scatter(df['RAM (GB)'], df['Price (Euro)'], color='black')
+  plt.title('Laptop Price vs. RAM')
+  plt.xlabel('RAM (GB)')
+  plt.ylabel('Price (Euro)')
+  plt.grid(True)
+  st.pyplot() 
 
-scatter_price_vs_ram()
-scatter_price_vs_memory()
 
 
 st.header("Price vs Memory, Price vs CPU RAM")
+scatter_price_vs_ram()
 st.markdown("""    
   **Observations:**  
-Viewing the graph, it is clear there is more of an aubdance of low memory devices, almost all HDDs under 500GB and SSDs under 250GB are under 3000 Euros. There is also a wide range of prices for the 1TB SSD ranging from 1900+ and the most expensive being over 6000 Euros. The prices cant fully accurately predict the storage on the PC as other components may also vary, but it is clear that laptops under 3000 mostly have 250GB SSD.
-There is a clear price to performance increase in terms of the RAM, with PCs under 3000 Euros having 16GB of RAM with less with a few exceptions. There are a few laptops in different price ranges that have 32GB RAM, ranging from 1000-6000 Euros.
+    Viewing the graph, it is clear there is more of an aubdance of low memory devices, almost all HDDs under 500GB and SSDs under 250GB are under 3000 Euros. There is also a wide range of prices for the 1TB SSD ranging from 1900+ and the most expensive being over 6000 Euros. The prices cant fully accurately predict the storage on the PC as other components may also vary, but it is clear that laptops under 3000 mostly have 250GB SSD.
 """)
 
 st.markdown("""    
   **Conclusion:**  
-HDDs with 500GB and SSDs with 250GB a most common under the 3000 Euro mark, anything above this is is random as other components of the laptop are fluctuating the prices, The Memory size that has the most fluctuation is the 1TB SSD.
-The cost of the PC in regards to the RAM is very straight-forward in a way that the RAM increases the more the laptop costs. The most common RAM sizes being 4, 8, 16 and 32. There are less and less laptops the higher the RAM is with 64GB only having 1 laptop. 32GB seems to fluctuate the most having a range of 1000 to 6000+
+    HDDs with 500GB and SSDs with 250GB a most common under the 3000 Euro mark, anything above this is is random as other components of the laptop are fluctuating the prices, The Memory size that has the most fluctuation is the 1TB SSD.
 """)
 
-def scatter_price_vs_gpucomp():
-  plt.figure(figsize=(6, 10))
-  plt.scatter(df['GPU_Company'], df['Price (Euro)'], color='red')
-  plt.title('Price Vs. GPU Company')
-  plt.xlabel('Weight (kg)')
-  plt.ylabel('Price (Euro)')
-  plt.grid(True)
-  plt.show()
-
-def scatter_price_vs_RAM_by_company():
-    plt.figure(figsize=(12, 10))
-
-    # Get unique companies and plot
-    companies = df['Company'].unique()
-    colors = plt.cm.get_cmap('tab20', len(companies))
-
-    for i, company in enumerate(companies):
-        subset = df[df['Company'] == company]
-        plt.scatter(subset['RAM (GB)'], subset['Price (Euro)'], color=colors(i), label=company, alpha=1, edgecolors='w', linewidth=0.5)
-
-    # Add plot details
-    plt.title('Price vs. RAM by Company')
-    plt.xlabel('RAM (GB)')
-    plt.ylabel('Price (Euro)')
-    plt.legend(title='Company', bbox_to_anchor=(1.05, 1), loc='upper left')
-    plt.grid(True)
-    plt.tight_layout()
-
-    # Show the plot
-    plt.show()
-
-# call
-scatter_price_vs_gpucomp()
-scatter_price_vs_RAM_by_company()
-
-st.header("Price vs GPU Company, Price vs CPU RAM by Company")
+st.header("Price vs Memory, Price vs CPU RAM")
+scatter_price_vs_memory()
 st.markdown("""    
-  **OBSERVATIONS AND CONCLUSION**  
-nvidia offers the most expensive GPUS, and AMD only offers cheap ones, with intel offering up to 3.1k euro gpus.
+  **Observations:**  
+    There is a clear price to performance increase in terms of the RAM, with PCs under 3000 Euros having 16GB of RAM with less with a few exceptions. There are a few laptops in different price ranges that have 32GB RAM, ranging from 1000-6000 Euros.
+""")
 
-ASUS suprisingly offers 64 GB RAM for only 4k euro when Razer offers 32 GB for 6k, but generally, the more RAM, the more it costs.""")
+st.markdown("""    
+  **Conclusion:**  
+The cost of the PC in regards to the RAM is very straight-forward in a way that the RAM increases the more the laptop costs. The most common RAM sizes being 4, 8, 16 and 32. There are less and less laptops the higher the RAM is with 64GB only having 1 laptop. 32GB seems to fluctuate the most having a range of 1000 to 6000+
+""")
