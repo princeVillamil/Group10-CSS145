@@ -111,3 +111,41 @@ st.markdown("""
 st.markdown("""    
   **Conclusion:**  
   The graph "Laptop Price vs CPU Frequency" presents that higher CPU frequency generally correlates with higher prices, but the relationship is not strictly linear. As previously mentioned, this factor of the laptop does not determine the final price but contributes to it.""")
+
+
+
+
+def scatter_price_vs_memory():
+    plt.figure(figsize=(10, 6))
+    plt.scatter(df['Memory'], df['Price (Euro)'], color='black')
+    plt.title('Laptop Price vs. Memory')
+    plt.xlabel('Memory')
+    plt.ylabel('Price (Euro)')
+    plt.xticks(rotation=90)
+    plt.grid(True)
+    plt.show()
+
+def scatter_price_vs_ram():
+    plt.figure(figsize=(10, 6))
+    plt.scatter(df['RAM (GB)'], df['Price (Euro)'], color='black')
+    plt.title('Laptop Price vs. RAM')
+    plt.xlabel('RAM (GB)')
+    plt.ylabel('Price (Euro)')
+    plt.grid(True)
+    plt.show()
+
+scatter_price_vs_ram()
+scatter_price_vs_memory()
+
+
+st.header("Price vs Memory, Price vs CPU RAM")
+st.markdown("""    
+  **Observations:**  
+Viewing the graph, it is clear there is more of an aubdance of low memory devices, almost all HDDs under 500GB and SSDs under 250GB are under 3000 Euros. There is also a wide range of prices for the 1TB SSD ranging from 1900+ and the most expensive being over 6000 Euros. The prices cant fully accurately predict the storage on the PC as other components may also vary, but it is clear that laptops under 3000 mostly have 250GB SSD.
+There is a clear price to performance increase in terms of the RAM, with PCs under 3000 Euros having 16GB of RAM with less with a few exceptions. There are a few laptops in different price ranges that have 32GB RAM, ranging from 1000-6000 Euros.
+""")
+
+st.markdown("""    
+  **Conclusion:**  
+HDDs with 500GB and SSDs with 250GB a most common under the 3000 Euro mark, anything above this is is random as other components of the laptop are fluctuating the prices, The Memory size that has the most fluctuation is the 1TB SSD.
+The cost of the PC in regards to the RAM is very straight-forward in a way that the RAM increases the more the laptop costs. The most common RAM sizes being 4, 8, 16 and 32. There are less and less laptops the higher the RAM is with 64GB only having 1 laptop. 32GB seems to fluctuate the most having a range of 1000 to 6000+
