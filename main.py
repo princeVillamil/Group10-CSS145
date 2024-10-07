@@ -151,9 +151,6 @@ HDDs with 500GB and SSDs with 250GB a most common under the 3000 Euro mark, anyt
 The cost of the PC in regards to the RAM is very straight-forward in a way that the RAM increases the more the laptop costs. The most common RAM sizes being 4, 8, 16 and 32. There are less and less laptops the higher the RAM is with 64GB only having 1 laptop. 32GB seems to fluctuate the most having a range of 1000 to 6000+
 """)
 
-
-
-# Highlights the corolation of laptop prices to its weight.
 def scatter_price_vs_gpucomp():
   plt.figure(figsize=(6, 10))
   plt.scatter(df['GPU_Company'], df['Price (Euro)'], color='red')
