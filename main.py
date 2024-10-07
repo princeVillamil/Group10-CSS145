@@ -86,7 +86,7 @@ def scatter_price_vs_inches():
 
 def scatter_price_vs_cpu_freq():
   plt.figure(figsize=(10, 6))
-  plt.scatter(df2['CPU_Frequency (GHz)'], df2['Price (Euro)'], color='pink', alpha=0.5)
+  plt.scatter(df['CPU_Frequency (GHz)'], df['Price (Euro)'], color='pink', alpha=0.5)
   plt.title('Laptop Price vs. CPU Frequency (GHz)')
   plt.xlabel('CPU Frequency (GHz)')
   plt.ylabel('Price (Euro)')
