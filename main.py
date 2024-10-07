@@ -103,7 +103,7 @@ def Price_vs_ScreenReso():
 st.header("Price Vs. CPU Type")
 Price_vs_CPUType()
 st.markdown("""    
-  **Observations:** "Comparing the Laptop price to the CPU Type, we can generally see that higher generation CPUs corresponds to much more expensive laptops. **Core i7** processors can be generally found within higher-priced laptops with its median price higher than other CPU types. **Core i5** processors have a much wider price range, which indicates that Core i5 CPUs are generally used within mid-range and higher-end priced laptops. **Core M** CPUs tend to be in the lower price range, likely due to their use in more lightweight and less powerful machines, such as thin ultrabooks. **Core i3** processors' price range are narrower, and they are found mostly in lower-priced models.
+  **Observations:** Comparing the Laptop price to the CPU Type, we can generally see that higher generation CPUs corresponds to much more expensive laptops. **Core i7** processors can be generally found within higher-priced laptops with its median price higher than other CPU types. **Core i5** processors have a much wider price range, which indicates that Core i5 CPUs are generally used within mid-range and higher-end priced laptops. **Core M** CPUs tend to be in the lower price range, likely due to their use in more lightweight and less powerful machines, such as thin ultrabooks. **Core i3** processors' price range are narrower, and they are found mostly in lower-priced models.
   """)
 
 st.header("Price Vs. Screen Resolution")
