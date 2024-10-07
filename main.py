@@ -136,8 +136,8 @@ def scatter_price_vs_ram():
 
 
 
-st.header("Price vs Memory, Price vs CPU RAM")
-scatter_price_vs_ram()
+st.header("Price vs Memory")
+scatter_price_vs_memory()
 st.markdown("""    
   **Observations:**  
     Viewing the graph, it is clear there is more of an aubdance of low memory devices, almost all HDDs under 500GB and SSDs under 250GB are under 3000 Euros. There is also a wide range of prices for the 1TB SSD ranging from 1900+ and the most expensive being over 6000 Euros. The prices cant fully accurately predict the storage on the PC as other components may also vary, but it is clear that laptops under 3000 mostly have 250GB SSD.
@@ -148,8 +148,8 @@ st.markdown("""
     HDDs with 500GB and SSDs with 250GB a most common under the 3000 Euro mark, anything above this is is random as other components of the laptop are fluctuating the prices, The Memory size that has the most fluctuation is the 1TB SSD.
 """)
 
-st.header("Price vs Memory, Price vs CPU RAM")
-scatter_price_vs_memory()
+st.header("Price vs CPU RAM")
+scatter_price_vs_ram()
 st.markdown("""    
   **Observations:**  
     There is a clear price to performance increase in terms of the RAM, with PCs under 3000 Euros having 16GB of RAM with less with a few exceptions. There are a few laptops in different price ranges that have 32GB RAM, ranging from 1000-6000 Euros.
