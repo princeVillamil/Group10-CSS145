@@ -149,3 +149,4 @@ st.markdown("""
   **Conclusion:**  
 HDDs with 500GB and SSDs with 250GB a most common under the 3000 Euro mark, anything above this is is random as other components of the laptop are fluctuating the prices, The Memory size that has the most fluctuation is the 1TB SSD.
 The cost of the PC in regards to the RAM is very straight-forward in a way that the RAM increases the more the laptop costs. The most common RAM sizes being 4, 8, 16 and 32. There are less and less laptops the higher the RAM is with 64GB only having 1 laptop. 32GB seems to fluctuate the most having a range of 1000 to 6000+
+""")
