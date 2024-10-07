@@ -103,18 +103,21 @@ def Price_vs_ScreenReso():
 st.header("Price Vs. CPU Type")
 Price_vs_CPUType()
 st.markdown("""    
-  **Observations:** Comparing the Laptop price to the CPU Type, we can generally see that higher generation CPUs corresponds to much more expensive laptops. **Core i7** processors can be generally found within higher-priced laptops with its median price higher than other CPU types. **Core i5** processors have a much wider price range, which indicates that Core i5 CPUs are generally used within mid-range and higher-end priced laptops. **Core M** CPUs tend to be in the lower price range, likely due to their use in more lightweight and less powerful machines, such as thin ultrabooks. **Core i3** processors' price range are narrower, and they are found mostly in lower-priced models.
+  **Observations:** 
+  Comparing the Laptop price to the CPU Type, we can generally see that higher generation CPUs corresponds to much more expensive laptops. **Core i7** processors can be generally found within higher-priced laptops with its median price higher than other CPU types. **Core i5** processors have a much wider price range, which indicates that Core i5 CPUs are generally used within mid-range and higher-end priced laptops. **Core M** CPUs tend to be in the lower price range, likely due to their use in more lightweight and less powerful machines, such as thin ultrabooks. **Core i3** processors' price range are narrower, and they are found mostly in lower-priced models.
   """)
 
 st.header("Price Vs. Screen Resolution")
 Price_vs_ScreenReso()
 st.markdown("""    
-  **Observations:** Comparing the laptop Price to the Screen Resolution, we can generally see that the higher screen resolution a laptop has, the more expensive their prices get. Higher resolutions such as 2880x1800 and 2560x1600 are associated with more expensive laptops. This is consistent with the fact that high-end displays, often found in premium devices, tend to drive up the overall cost. 1920x1080 (Full HD) resolution laptops show a wide price range, suggesting this resolution is common across various price categories, from mid-range to premium. Lower resolutions such as 1366x768 are found in more affordable laptops, indicating that budget-friendly devices typically have less sharp displays.
+  **Observations:** 
+  Comparing the laptop Price to the Screen Resolution, we can generally see that the higher screen resolution a laptop has, the more expensive their prices get. Higher resolutions such as 2880x1800 and 2560x1600 are associated with more expensive laptops. This is consistent with the fact that high-end displays, often found in premium devices, tend to drive up the overall cost. 1920x1080 (Full HD) resolution laptops show a wide price range, suggesting this resolution is common across various price categories, from mid-range to premium. Lower resolutions such as 1366x768 are found in more affordable laptops, indicating that budget-friendly devices typically have less sharp displays.
   """)
 
 st.header("Conclusion")
 st.markdown("""    
-  **Conclusion:** **CPU Type**: Laptops with more advanced CPUs (e.g., Core i7) tend to have higher prices. Budget laptops are more likely to feature lower generation CPUs. **Screen Resolution**: Higher screen resolutions are associated with more expensive laptops, suggesting that display quality is an important feature in premium devices. Full HD resolution is common across both mid-range and high-end laptops.
+  **Conclusion:** 
+  **CPU Type**: Laptops with more advanced CPUs (e.g., Core i7) tend to have higher prices. Budget laptops are more likely to feature lower generation CPUs. **Screen Resolution**: Higher screen resolutions are associated with more expensive laptops, suggesting that display quality is an important feature in premium devices. Full HD resolution is common across both mid-range and high-end laptops.
   """)
 
 
