@@ -4,6 +4,6 @@ Jose Andres Ofrin - 2022104029 - AyTuhEh4624
 
 Agustin, Julia Jean T. - 2022103052 - Jellybeansontoasties 
 
-name - student number - username 
+Christian Caseria - 2022105988 - qwerty060204
 
 name - student number - username 
