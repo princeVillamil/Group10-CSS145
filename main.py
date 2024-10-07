@@ -76,32 +76,38 @@ st.markdown("""
 
 
 def scatter_price_vs_inches():
-    plt.figure(figsize=(10, 6))
-    plt.scatter(df['Inches'], df['Price (Euro)'], color='pink', alpha=0.5)
-    plt.title('Laptop Price vs. Screen Size (Inches)')
-    plt.xlabel('Screen Size (Inches)')
-    plt.ylabel('Price (Euro)')
-    plt.grid(True)
-    plt.show()
+  plt.figure(figsize=(10, 6))
+  plt.scatter(df['Inches'], df['Price (Euro)'], color='pink', alpha=0.5)
+  plt.title('Laptop Price vs. Screen Size (Inches)')
+  plt.xlabel('Screen Size (Inches)')
+  plt.ylabel('Price (Euro)')
+  plt.grid(True)
+  st.pyplot() 
+
 def scatter_price_vs_cpu_freq():
-    plt.figure(figsize=(10, 6))
-    plt.scatter(df2['CPU_Frequency (GHz)'], df2['Price (Euro)'], color='pink', alpha=0.5)
-    plt.title('Laptop Price vs. CPU Frequency (GHz)')
-    plt.xlabel('CPU Frequency (GHz)')
-    plt.ylabel('Price (Euro)')
-    plt.grid(True)
-    plt.show()
-
+  plt.figure(figsize=(10, 6))
+  plt.scatter(df2['CPU_Frequency (GHz)'], df2['Price (Euro)'], color='pink', alpha=0.5)
+  plt.title('Laptop Price vs. CPU Frequency (GHz)')
+  plt.xlabel('CPU Frequency (GHz)')
+  plt.ylabel('Price (Euro)')
+  plt.grid(True)
+  st.pyplot() 
+st.header("Price vs inches")
 scatter_price_vs_inches()
-scatter_price_vs_cpu_freq()
-
-st.header("Price vs inches, Price vs CPU Frequency")
-gpu_distribution()
 st.markdown("""    
   **Observations:**  
- The graph "Laptop Price vs. Screen Size" shows no clear linear relationship between screen size and price, though there are patterns showcased in the data visualisation. For the 12 to 13-inch range, these laptops are priced below 2000 Euoros, with a few outliers. The laptops with 14 to 15-inch screens presented the widest range in pricing, from below 1000 Euros to above 4000 Euros. As for 16 to 18-inch laptops, they are generally priced higher, even exceeding 5000 Euros. Additionally, there were clusters, and prices of laptops that centred on certain price points such as 1000, 2000, and 3000 Euros.
- The second graph titled, "Laptop Price vs CPU Frequency" presents the relationship between CPU frequency and determining prices for laptops. Most of the data points fall within the 1.0 GHz to 3.0 GHz, evidently clusters nearing the prices of 500 to 1000 Eeros can be seen in almost all CPU frequency levels. As for the mid-range, 2.0 to 2.5 GHz have a wider price range, extending from approximately 500 Euros to over 4000 Euros. Moreover, the higher-priced laptops (3000 Euros or above) tend to have CPU frequencies between 2.0 GHz to 3.0 GHz and have a significant price dispersion compared to lower frequencies.""")
+  The graph "Laptop Price vs. Screen Size" shows no clear linear relationship between screen size and price, though there are patterns showcased in the data visualisation. For the 12 to 13-inch range, these laptops are priced below 2000 Euoros, with a few outliers. The laptops with 14 to 15-inch screens presented the widest range in pricing, from below 1000 Euros to above 4000 Euros. As for 16 to 18-inch laptops, they are generally priced higher, even exceeding 5000 Euros. Additionally, there were clusters, and prices of laptops that centred on certain price points such as 1000, 2000, and 3000 Euros.
+  """)
 st.markdown("""    
   **Conclusion:**  
- For the graph "Laptop Price vs. Screen Size", larger laptops (over 16 inches) tend to have higher price points compared to smaller ones. The highest-priced laptops are found in the 14 to 15-inch and 16 to 18-inch ranges, indicating that factors other than screen size play a significant role in determining price.
- The graph "Laptop Price vs CPU Frequency" presents that higher CPU frequency generally correlates with higher prices, but the relationship is not strictly linear. As previously mentioned, this factor of the laptop does not determine the final price but contributes to it.""")
+  For the graph "Laptop Price vs. Screen Size", larger laptops (over 16 inches) tend to have higher price points compared to smaller ones. The highest-priced laptops are found in the 14 to 15-inch and 16 to 18-inch ranges, indicating that factors other than screen size play a significant role in determining price.
+  """)
+
+st.header("Price vs CPU Frequency")
+scatter_price_vs_cpu_freq()
+st.markdown("""    
+  **Observations:**  
+  The second graph titled, "Laptop Price vs CPU Frequency" presents the relationship between CPU frequency and determining prices for laptops. Most of the data points fall within the 1.0 GHz to 3.0 GHz, evidently clusters nearing the prices of 500 to 1000 Eeros can be seen in almost all CPU frequency levels. As for the mid-range, 2.0 to 2.5 GHz have a wider price range, extending from approximately 500 Euros to over 4000 Euros. Moreover, the higher-priced laptops (3000 Euros or above) tend to have CPU frequencies between 2.0 GHz to 3.0 GHz and have a significant price dispersion compared to lower frequencies.""")
+st.markdown("""    
+  **Conclusion:**  
+  The graph "Laptop Price vs CPU Frequency" presents that higher CPU frequency generally correlates with higher prices, but the relationship is not strictly linear. As previously mentioned, this factor of the laptop does not determine the final price but contributes to it.""")
