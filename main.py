@@ -136,7 +136,7 @@ def scatter_price_vs_ram():
 
 
 
-st.header("Price vs Memory, Price vs CPU RAM")
+st.header("Price vs Memory")
 scatter_price_vs_ram()
 st.markdown("""    
   **Observations:**  
@@ -148,7 +148,7 @@ st.markdown("""
     HDDs with 500GB and SSDs with 250GB a most common under the 3000 Euro mark, anything above this is is random as other components of the laptop are fluctuating the prices, The Memory size that has the most fluctuation is the 1TB SSD.
 """)
 
-st.header("Price vs Memory, Price vs CPU RAM")
+st.header("Price vs CPU RAM")
 scatter_price_vs_memory()
 st.markdown("""    
   **Observations:**  
