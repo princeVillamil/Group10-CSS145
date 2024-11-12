@@ -1,11 +1,5 @@
-Prince Jeffrey Villamil - 2023162236 - princeVillamil
+# Sreamlit Dashboard Template
 
-Shafer Arjun Tagorda - 2022104976 - ArjunTags
+![Main Page Screenshot](screenshots/main_page_screenshot.png)
 
-Jose Andres Ofrin - 2022104029 - AyTuhEh4624
-
-Agustin, Julia Jean T. - 2022103052 - Jellybeansontoasties 
-
-Christian Caseria - 2022105988 - qwerty060204
-
-name - student number - username 
+This repository serves as a project guide template for my students in **Introduction to Data Science** course for their final project. It contains a Python file `dashboard_template.py` which contains a boilerplate for a Streamlit dashboard.

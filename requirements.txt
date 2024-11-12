@@ -1,10 +1,4 @@
 streamlit
-matplotlib
-numpy
 pandas
-seaborn
 altair
-wordcloud
-squarify
-networkx
 plotly
