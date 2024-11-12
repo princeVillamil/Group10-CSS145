@@ -4,6 +4,10 @@ import streamlit as st
 import pandas as pd
 import altair as alt
 import plotly.express as px
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+from sklearn.linear_model import LinearRegression
 # from sklearn.preprocessing import LabelEncoder, StandardScaler
 
 
@@ -202,12 +206,56 @@ elif st.session_state.page_selection == "data_cleaning":
 # Machine Learning Page
 elif st.session_state.page_selection == "machine_learning":
     st.header("🤖 Machine Learning")
+    st.subheader("Linear Regression")
+    st.markdown("""
+    Linear regression is a model that uses multiple independent variables to predict a dependent variable, helping to understand how these variables influence the outcome. In this case, we chose experience level, company size, and remote work ratio as our independent variables, while salary (in USD) is our dependent variable, which we aim to predict. By using a linear regression model, we can explore how which of these factors have a greater impact when it comes to data science job salaries, providing highlights into salary trends within the industry.
+    """)
 
-    # Your content for the MACHINE LEARNING page goes here
+    st.subheader("Random Forest Regressor")
+    st.markdown("""
+
+    **The Random Forest Regressor is a machine learning algorithm used to predict continuous values by combining multiple decision trees, forming what is known as a "forest." Each tree is trained independently on different random subsets of data and features.
+
+The process starts with data splitting, where the algorithm randomly selects subsets of both data points and features to create a variety of decision trees.
+
+Each tree is trained separately and makes its own prediction using its specific subset. When a final prediction is needed, the algorithm takes the predictions from all the trees in the forest and averages them to produce the final result.
+
+    """)
+
 
 # Prediction Page
 elif st.session_state.page_selection == "prediction":
+    st.subheader("Graph showing the 'Actual vs Predicted Salary'")
     st.header("👀 Prediction")
+    encoder = LabelEncoder()
+    # Create a copy of the DataFrame
+    dfnewCopy = dfnew.copy()
+    # Encode categorical variables
+    dfnewCopy['experience_level_encoded'] = encoder.fit_transform(dfnewCopy['experience_level'])
+    dfnewCopy['company_size_encoded'] = encoder.fit_transform(dfnewCopy['company_size'])
+    # Define features (X) and target (y)
+    X = dfnewCopy[['experience_level_encoded', 'remote_ratio', 'company_size_encoded']]
+    y = dfnewCopy['salary_in_usd']
+    # Split the data into training and testing sets
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    # Create and train the model
+    model = LinearRegression()
+    model.fit(X_train, y_train)
+    # Predict the salary values on the test set
+    y_pred = model.predict(X_test)
+    # Create a scatter plot for Actual vs Predicted Salary
+    plt.figure(figsize=(10, 6))
+    plt.scatter(y_test, y_pred, color='blue', alpha=0.5)
+    plt.xlabel("Actual Salary")
+    plt.ylabel("Predicted Salary")
+    plt.title("Actual vs Predicted Salary")
+    plt.grid(True)
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+
+    # Display the plot in Streamlit
+    st.pyplot(plt)
+
 
     # Your content for the PREDICTION page goes here
 
