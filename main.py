@@ -43,6 +43,9 @@ experience_level, job_title, and etc
 # Data cleaning
 """
 
+from google.colab import files
+uploaded = files.upload()
+
 # Global variable
 import numpy as np
 import pandas as pd
