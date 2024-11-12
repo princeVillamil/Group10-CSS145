@@ -156,6 +156,19 @@ elif st.session_state.page_selection == "eda":
     st.title("Average Salary by Company Size")
     st.bar_chart(avg_salary_df.set_index('Company Size'))
 
+    st.subheader("Average Data Science Salaries by Employment Type'")
+    avg_salary = dfnew.groupby('employment_type')['salary_in_usd'].mean().reset_index()
+    plt.figure(figsize=(12, 6))
+    plt.bar(avg_salary['employment_type'], avg_salary['salary_in_usd'], color='purple')
+    plt.title('Average Data Science Salaries by Employment Type')
+    plt.xlabel('Employment Type')
+    plt.ylabel('Average Salary in USD')
+    plt.grid(True)
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    st.pyplot()
+
+
 
 
 
@@ -299,6 +312,8 @@ elif st.session_state.page_selection == "prediction":
 
 3. **Remote Ratio:** The remote work percentage may affect salary; however, from our data, it seems like the average salary given did not see much changes.
     """)
+    
+    st.subheader("Actual vs Predicted Average Data Science Salaries by Experience Level'")
     experience_mapping = {
         0: 'Entry Level',
         1: 'Mid Level',
@@ -321,8 +336,8 @@ elif st.session_state.page_selection == "prediction":
     bar_width = 0.4
     index = np.arange(len(experience_mapping))
     plt.bar(index - bar_width/2, avg_actual_salary['salary_in_usd'], bar_width, label='Actual', color='b')
-    plt.bar(index + bar_width/2, avg_predicted_salary['predicted_salary'], bar_width, label='Predicted', color='g')
-    plt.title('Average Data Science Salaries by Experience Level (Actual vs Supervised Learning Predicted)')
+    plt.bar(index + bar_width/2, avg_predicted_salary['predicted_salary'], bar_width, label='Predicted', color='r')
+    plt.title('Actual vs Predicted Average Data Science Salaries by Experience Level')
     plt.xlabel('Experience Level')
     plt.ylabel('Average Salary in USD')
     plt.xticks(index, experience_mapping.values(), rotation=45)
@@ -331,10 +346,16 @@ elif st.session_state.page_selection == "prediction":
     plt.tight_layout()
     st.pyplot()
 
-
-
 # Conclusions Page
 elif st.session_state.page_selection == "conclusion":
     st.header("📝 Conclusion")
 
     # Your content for the CONCLUSION page goes here
+    st.subheader("Average Data Science Salaries by Employment Type'")
+    st.markdown("""
+        From what we can see on the bar chart, the highest average salary was for CT positions, with an average that far surpasses the rest, and is nearly 175,000. The average for FT employment is relatively middle-of-the-pack at around 100,000, and FL and PT averages are significantly smaller, and their averages run below 50,000. This would indicate that more pay in data science is often associated with contract-based employment, perhaps reflecting the premium put for short-term, high-skilled work, where freelancer and part-time will take lower pay rates.
+    """)
+    st.subheader("Actual vs Predicted Average Data Science Salaries by Experience Level'")
+    st.markdown("""
+        From this bar graph, we can see that for entry-level positions, the predicted values are in good agreement with the actual ones. For mid-level, the actual salaries are much higher than the predicted ones. Thus, it underestimates salaries for this category. For senior-level positions, the difference is less significant, as it underestimates. Lastly, the model's predictions for expert-level positions are in good agreement with the actual ones.
+    """)
