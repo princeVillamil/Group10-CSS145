@@ -230,7 +230,7 @@ elif st.session_state.page_selection == "prediction":
     st.header("👀 Prediction")
 
     
-    st.subheader("Supervised Learning graph showing the 'Actual vs Predicted Salary'")
+    st.subheader("Supervised Learning: Graph showing the 'Actual vs Predicted Salary'")
     # Create a copy of the DataFrame
     dfnewCopy = dfnew.copy()
     # Encode categorical variables
@@ -261,6 +261,7 @@ elif st.session_state.page_selection == "prediction":
         From this scatter graph, we are able to understand that the predicted salary is considerably lower than the actual salary. Using an encoder to convert "experience_level" and "company_size" into usable values, we are able to get predicted salaries. This plot visualized how linear regression model predictions align with the aculary salary given from the data set. In this case, the predicted values are significantly lower.
     """)
 
+    st.subheader("Supervised Learning: Important Factors in Salary Prediction'")
     dfnewCopy = dfnew.copy()
     dfnewCopy['experience_level_encoded'] = encoder.fit_transform(dfnewCopy['experience_level'])
     dfnewCopy['company_size_encoded'] = encoder.fit_transform(dfnewCopy['company_size'])
@@ -287,7 +288,16 @@ elif st.session_state.page_selection == "prediction":
     # Display the plot in Streamlit
     st.pyplot(plt)
     # Optionally display the DataFrame with the new columns
-    st.write(dfnewCopy.head())
+    st.markdown("""
+        This graph highlights the factors that most significantly contribute to predicting the salary.
+
+
+1. **Experience Level:** This factor has a strong influence on salary, with more senior roles usually demending higher salaries. This was very much expected.
+
+2. **Company Size:** It seems like larger companies will most likely offer higher salaries compared to smaller companies.
+
+3. **Remote Ratio:** The remote work percentage may affect salary; however, from our data, it seems like the average salary given did not see much changes.
+    """)
 
 
 
