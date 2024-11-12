@@ -298,7 +298,37 @@ elif st.session_state.page_selection == "prediction":
 
 3. **Remote Ratio:** The remote work percentage may affect salary; however, from our data, it seems like the average salary given did not see much changes.
     """)
-
+    experience_mapping = {
+        0: 'Entry Level',
+        1: 'Mid Level',
+        2: 'Senior Level',
+        3: 'Expert Level'
+    }
+    dfnew['experience_level_code'] = dfnew['experience_level'].astype('category').cat.codes
+    X = dfnew[['experience_level_code']]
+    y = dfnew['salary_in_usd']
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    model = LinearRegression()
+    model.fit(X_train, y_train)
+    predictions = model.predict(X)
+    dfnew['predicted_salary'] = predictions
+    avg_predicted_salary = dfnew.groupby('experience_level_code')['predicted_salary'].mean().reset_index()
+    avg_actual_salary = dfnew.groupby('experience_level_code')['salary_in_usd'].mean().reset_index()
+    avg_actual_salary['experience_level'] = avg_actual_salary['experience_level_code'].map(experience_mapping)
+    avg_predicted_salary['experience_level'] = avg_predicted_salary['experience_level_code'].map(experience_mapping)
+    plt.figure(figsize=(12, 6))
+    bar_width = 0.4
+    index = np.arange(len(experience_mapping))
+    plt.bar(index - bar_width/2, avg_actual_salary['salary_in_usd'], bar_width, label='Actual', color='b')
+    plt.bar(index + bar_width/2, avg_predicted_salary['predicted_salary'], bar_width, label='Predicted', color='g')
+    plt.title('Average Data Science Salaries by Experience Level (Actual vs Supervised Learning Predicted)')
+    plt.xlabel('Experience Level')
+    plt.ylabel('Average Salary in USD')
+    plt.xticks(index, experience_mapping.values(), rotation=45)
+    plt.grid(True)
+    plt.legend()
+    plt.tight_layout()
+    st.pyplot()
 
 
 
