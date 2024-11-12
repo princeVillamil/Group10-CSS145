@@ -74,6 +74,8 @@ df = dataset.copy()
 df.dropna(axis=1, how='any')
 dfnew = df.drop(columns=['Unnamed: 0'])
 dfnewCopy = dfnew.copy()
+encoder = LabelEncoder()
+
 
 #######################
 
@@ -225,9 +227,10 @@ Each tree is trained separately and makes its own prediction using its specific 
 
 # Prediction Page
 elif st.session_state.page_selection == "prediction":
-    st.subheader("Graph showing the 'Actual vs Predicted Salary'")
     st.header("👀 Prediction")
-    encoder = LabelEncoder()
+
+    
+    st.subheader("Supervised Learning graph showing the 'Actual vs Predicted Salary'")
     # Create a copy of the DataFrame
     dfnewCopy = dfnew.copy()
     # Encode categorical variables
@@ -252,12 +255,42 @@ elif st.session_state.page_selection == "prediction":
     plt.grid(True)
     plt.xticks(rotation=45)
     plt.tight_layout()
-
     # Display the plot in Streamlit
     st.pyplot(plt)
+    st.markdown("""
+        From this scatter graph, we are able to understand that the predicted salary is considerably lower than the actual salary. Using an encoder to convert "experience_level" and "company_size" into usable values, we are able to get predicted salaries. This plot visualized how linear regression model predictions align with the aculary salary given from the data set. In this case, the predicted values are significantly lower.
+    """)
+
+    dfnewCopy = dfnew.copy()
+    dfnewCopy['experience_level_encoded'] = encoder.fit_transform(dfnewCopy['experience_level'])
+    dfnewCopy['company_size_encoded'] = encoder.fit_transform(dfnewCopy['company_size'])
+    # Map remote ratio values to strings
+    remote_ratio_mapping = {0: "Less than 20%", 50: "Partially Remote (50%)", 100: "Fully Remote (More than 80%)"}
+    dfnewCopy['remote_ratio_str'] = dfnewCopy['remote_ratio'].map(remote_ratio_mapping)
+    # Define features (X) and target (y)
+    X = dfnewCopy[['experience_level_encoded', 'remote_ratio', 'company_size_encoded']]
+    y = dfnewCopy['salary_in_usd']
+    # Split the data into training and testing sets
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    # Create and train the model
+    model = LinearRegression()
+    model.fit(X_train, y_train)
+    # Get feature importance
+    feature_importance = pd.Series(model.coef_, index=['Experience Level', 'Remote Ratio', 'Company Size'])
+    # Plot feature importance
+    plt.figure(figsize=(8, 6))
+    feature_importance.plot(kind='bar', color='lightgreen')
+    plt.title("Important Factors in Salary Prediction")
+    plt.xlabel("Factors")
+    plt.ylabel("Predicted Salary Changes")
+    plt.tight_layout()
+    # Display the plot in Streamlit
+    st.pyplot(plt)
+    # Optionally display the DataFrame with the new columns
+    st.write(dfnewCopy.head())
 
 
-    # Your content for the PREDICTION page goes here
+
 
 # Conclusions Page
 elif st.session_state.page_selection == "conclusion":
