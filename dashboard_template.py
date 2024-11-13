@@ -185,9 +185,9 @@ elif st.session_state.page_selection == "eda":
     plt.xlabel('Salary in USD')
     plt.ylabel('Remote Ratio')
     plt.grid(True)
-    plt.xticks(rotation=45)  
-    plt.tight_layout()  
-    plt.show()
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    st.pyplot()
 
 
 
