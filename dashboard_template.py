@@ -371,6 +371,24 @@ elif st.session_state.page_selection == "prediction":
     """)
 
     st.subheader("Unsupervised Learning: Data Science Salary Across Different Locations ")
+    data_filtered = data[['salary_in_usd', 'company_location']].copy()
+
+    label_encoder = LabelEncoder()
+    data_filtered.loc[:, 'company_location_encoded'] = label_encoder.fit_transform(data_filtered['company_location'])
+    
+    
+    data_filtered = data_filtered.drop(columns=['company_location'])
+    
+    
+    data_filtered.head()
+    
+    inertia = []
+    k_range = range(1, 11)
+    for k in k_range:
+        kmeans = KMeans(n_clusters=k, random_state=42)
+        kmeans.fit(data_filtered)
+        inertia.append(kmeans.inertia_)
+
     kmeans = KMeans(n_clusters=4, random_state=42)
     data_filtered['cluster'] = kmeans.fit_predict(data_filtered)
     
@@ -395,7 +413,7 @@ elif st.session_state.page_selection == "prediction":
 
     st.markdown("""
         This graph shows the cluster of job salaries by company location which visually represents how salaries in Data Science roles vary across different region. 
-        """)
+    """)
 
 # Conclusions Page
 elif st.session_state.page_selection == "conclusion":
