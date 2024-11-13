@@ -168,7 +168,7 @@ elif st.session_state.page_selection == "eda":
     plt.tight_layout()
     st.pyplot()
 
-    st.subheader("'Data Science Salaries by Job Title'")
+    st.subheader("Data Science Salaries by Job Title")
     plt.figure(figsize=(12, 6))
     plt.barh(dfnew['job_title'], dfnew['salary_in_usd'], color='m')
     plt.title('Data Science Salaries by Job Title')
@@ -176,9 +176,9 @@ elif st.session_state.page_selection == "eda":
     plt.ylabel('Job Title')
     plt.grid(True)
     plt.tight_layout()
-    plt.show()
+    st.pyplot()
 
-    st.subheader("'Data Science Salaries by Remote Ratio'")
+    st.subheader("Data Science Salaries by Remote Ratio")
     plt.figure(figsize=(12, 6))
     plt.plot(dfnew['salary_in_usd'], dfnew['remote_ratio'], 'o', color='orange')
     plt.title('Data Science Salaries by Remote Ratio')
