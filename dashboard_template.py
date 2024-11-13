@@ -383,3 +383,8 @@ elif st.session_state.page_selection == "conclusion":
     st.markdown("""
         From this bar graph, we can see that for entry-level positions, the predicted values are in good agreement with the actual ones. For mid-level, the actual salaries are much higher than the predicted ones. Thus, it underestimates salaries for this category. For senior-level positions, the difference is less significant, as it underestimates. Lastly, the model's predictions for expert-level positions are in good agreement with the actual ones.
     """)
+
+    st.subheader("Data Science Salaries by Job Title'")
+    st.markdown("""
+       From the graph shown, we can see a trend that the higher up titles have higher earning salaries, usually for the ones with "Lead", or "Head" in the title, it also shows that broad titles also have a higher salary on average, these include, Data Scientist, Research Scientist and Software Engineer.
+    """)
