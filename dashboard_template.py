@@ -388,8 +388,6 @@ elif st.session_state.page_selection == "prediction":
 
     kmeans = KMeans(n_clusters=4, random_state=42)
     data_filtered['cluster'] = kmeans.fit_predict(data_filtered)
-    
-    
     data_filtered['company_location'] = label_encoder.inverse_transform(data_filtered['company_location_encoded'])
     
     plt.figure(figsize=(12, 8))
