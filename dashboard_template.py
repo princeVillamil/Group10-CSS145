@@ -373,6 +373,7 @@ elif st.session_state.page_selection == "prediction":
     """)
 
     st.subheader("Unsupervised Learning: Data Science Salary Across Different Locations ")
+    df.head(), df.columns
     data_filtered = df[['salary_in_usd', 'company_location']].copy()
 
     
