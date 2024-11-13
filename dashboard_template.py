@@ -370,6 +370,33 @@ elif st.session_state.page_selection == "prediction":
     This is a bar chart representing the comparison between the actual average versus the predicted average of salaries for different experience levels of data science. Every level of experience has two colored bars: blue representing the actual average salary based on the dataset, and red representing the predicted salary. The predicted salaries are created using a linear regression model on encoded experience levels that were changed into numerical codes, such as being entry-level or mid-level, etc. With the dataset, we created training and testing sets such that we used 80% of the data to train the model concerning experience level codes and salaries. The model then predicts all salaries for the entire dataset, with those predicted salaries averaged by experience level for comparison against actual average salaries.
     """)
 
+    st.subheader("Unsupervised Learning: Data Science Salary Across Different Locations ")
+    kmeans = KMeans(n_clusters=4, random_state=42)
+    data_filtered['cluster'] = kmeans.fit_predict(data_filtered)
+    
+    
+    data_filtered['company_location'] = label_encoder.inverse_transform(data_filtered['company_location_encoded'])
+    
+    plt.figure(figsize=(12, 8))
+    sns.scatterplot(
+        x='company_location_encoded',
+        y='salary_in_usd',
+        hue='cluster',
+        data=data_filtered,
+        palette='viridis',
+        style='cluster',
+        s=100
+    )
+    plt.xlabel("Company Location (Encoded)")
+    plt.ylabel("Salary in USD")
+    plt.title("Clusters of Job Salaries by Company Location")
+    plt.legend(title="Cluster")
+    plt.show()
+
+    st.markdown("""
+        This graph shows the cluster of job salaries by company location which visually represents how salaries in Data Science roles vary across different region. 
+        """)
+
 # Conclusions Page
 elif st.session_state.page_selection == "conclusion":
     st.header("📝 Conclusion")
