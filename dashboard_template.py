@@ -373,9 +373,8 @@ elif st.session_state.page_selection == "prediction":
     """)
 
     st.subheader("Unsupervised Learning: Data Science Salary Across Different Locations ")
-    data_filtered = dfnew[['salary_in_usd', 'company_location']].copy()
-    label_encoder = LabelEncoder()
-    data_filtered.loc[:, 'company_location_encoded'] = label_encoder.fit_transform(data_filtered['company_location'])
+    data_filtered = df[['salary_in_usd', 'company_location']].copy()
+    data_filtered.loc[:, 'company_location_encoded'] = encoder.fit_transform(data_filtered['company_location'])
     data_filtered = data_filtered.drop(columns=['company_location'])
 
     inertia = []
@@ -385,23 +384,16 @@ elif st.session_state.page_selection == "prediction":
         kmeans.fit(data_filtered)
         inertia.append(kmeans.inertia_)
 
-    plt.figure(figsize=(8, 5))
-    plt.plot(k_range, inertia, marker='o', linestyle='-')
-    plt.xlabel("Number of Clusters (k)")
-    plt.ylabel("Inertia")
-    plt.title("Elbow Method for Optimal k")
-    plt.show()
-
     kmeans = KMeans(n_clusters=4, random_state=42)
     data_filtered['cluster'] = kmeans.fit_predict(data_filtered)
-    data_filtered['company_location'] = label_encoder.inverse_transform(data_filtered['company_location_encoded'])
+    data_filtered['company_location'] = encoder.inverse_transform(data_filtered['company_location_encoded'])
     
     plt.figure(figsize=(12, 8))
     sns.scatterplot(
         x='company_location_encoded',
         y='salary_in_usd',
         hue='cluster',
-        data=data_filtered,
+        df=data_filtered,
         palette='viridis',
         style='cluster',
         s=100
