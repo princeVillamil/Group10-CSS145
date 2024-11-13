@@ -9,6 +9,8 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 from sklearn.linear_model import LinearRegression
+from sklearn.cluster import KMeans
+import seaborn as sns
 # from sklearn.preprocessing import LabelEncoder, StandardScaler
 
 
@@ -371,10 +373,9 @@ elif st.session_state.page_selection == "prediction":
     """)
 
     st.subheader("Unsupervised Learning: Data Science Salary Across Different Locations ")
-    df.head(), df.columns
     data_filtered = df[['salary_in_usd', 'company_location']].copy()
 
-    from sklearn.cluster import KMeans
+    
     inertia = []
     k_range = range(1, 11)
     for k in k_range:
