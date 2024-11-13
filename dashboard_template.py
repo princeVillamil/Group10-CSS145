@@ -64,7 +64,7 @@ with st.sidebar:
 
     # Project Members
     st.subheader("Members")
-    st.markdown("1. Prince Jeffrey Villamil\n2. Name\n3. Name\n4. Name\n5. Name")
+    st.markdown("1. Prince Jeffrey Villamil\n2. Jose Andres Ofrin \n3. Chris Caseria\n4. Julia Jean Agustin\n5. Shafer Arjun Tagorda")
 
 #######################
 # Data
