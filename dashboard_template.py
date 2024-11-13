@@ -373,7 +373,7 @@ elif st.session_state.page_selection == "prediction":
     """)
 
     st.subheader("Unsupervised Learning: Data Science Salary Across Different Locations ")
-    data_filtered = df[['salary_in_usd', 'company_location']].copy()
+    data_filtered = dfnew[['salary_in_usd', 'company_location']].copy()
     label_encoder = LabelEncoder()
     data_filtered.loc[:, 'company_location_encoded'] = label_encoder.fit_transform(data_filtered['company_location'])
     data_filtered = data_filtered.drop(columns=['company_location'])
