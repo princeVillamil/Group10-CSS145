@@ -388,3 +388,8 @@ elif st.session_state.page_selection == "conclusion":
     st.markdown("""
        From the graph shown, we can see a trend that the higher up titles have higher earning salaries, usually for the ones with "Lead", or "Head" in the title, it also shows that broad titles also have a higher salary on average, these include, Data Scientist, Research Scientist and Software Engineer.
     """)
+
+    st.subheader("Data Science Salaries by Remote Ratio'")
+    st.markdown("""
+       Looking at the graph, it is clear that jobs that are fully remote are more common, due to this abundance of jobs, there are a lot of low paying jobs when its fully online. However, there are exceptions as there are also jobs that range from 350,000 - 600,000USD. Fully remote jobs hold both the highs and the lows in terms of salary. It is also clear the jobs that are  local and in-person tend to pay lower.
+    """)
