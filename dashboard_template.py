@@ -390,11 +390,7 @@ elif st.session_state.page_selection == "prediction":
     
     # Optional: Map the encoded locations back to original values for interpretability
     location_encoding = dict(zip(dfnewCopy['company_location'].unique(), encoder.transform(dfnewCopy['company_location'].unique())))
-    
-    # Display the location encoding for reference
-    for location, code in location_encoding.items():
-        print(f"{location}: {code}")
-    
+
     # Plot the clusters based on salary and encoded location
     plt.figure(figsize=(12, 8))
     sns.scatterplot(
@@ -410,7 +406,7 @@ elif st.session_state.page_selection == "prediction":
     plt.ylabel("Salary in USD")
     plt.title("Clusters of Job Salaries by Company Location")
     plt.legend(title="Cluster")
-    plt.show()
+    st.pyplot(plt) 
 
     st.markdown("""
         This graph shows the cluster of job salaries by company location which visually represents how salaries in Data Science roles vary across different region. 
