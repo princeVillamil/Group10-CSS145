@@ -409,7 +409,10 @@ elif st.session_state.page_selection == "prediction":
     st.pyplot(plt) 
 
     st.markdown("""
-        This graph shows the cluster of job salaries by company location which visually represents how salaries in Data Science roles vary across different region. 
+        This graph shows the cluster of job salaries by company location which visually represents how salaries in Data Science roles vary across different region. As seen within the graph, each cluster represents a group of location which has a similar salary range. For example, cluster 1 consists of location where data scientists are generally paid higher salaries, while cluster 3 consists of locations with lower average salaries. 
+        Unsupervised learning was used to be able to uncover hidden patterns or grouping within the data. In this instance, between company location and data science salary, it revealed salary trends and clusters based on the company's geographical location.
+        
+        This cluster graph was able to make sense of the relationship witheen location and salary by grouping locations with similar compensation levels. This provided a clearer picture on how the job market for data scienctists is structured globally.
     """)
 
 # Conclusions Page
@@ -434,4 +437,9 @@ elif st.session_state.page_selection == "conclusion":
     st.subheader("Data Science Salaries by Remote Ratio'")
     st.markdown("""
        Looking at the graph, it is clear that jobs that are fully remote are more common, due to this abundance of jobs, there are a lot of low paying jobs when its fully online. However, there are exceptions as there are also jobs that range from 350,000 - 600,000USD. Fully remote jobs hold both the highs and the lows in terms of salary. It is also clear the jobs that are  local and in-person tend to pay lower.
+    """)
+
+    st.subheader("Data Science Salaries by Company Location'")
+    st.markdown("""
+       The clustering analysis of job salaries across company locations highlighted that compensation for data science roles varies significantly by region. For example, in high-cost regions such as North America and parts of europe, data science positions tend to offer higher salaries compared to regions with lower costs of living. This is likely due to the high demand for skilled data scientists in these regions, alongside the higher operational costs that companies in these areas face. Additionally, the analysis shows that some countries with a strong presence of tech and finance industries (such as the US) cluster together with higher salary ranges. These industries are major employers of data scientists, and they often offer competitive salaries to attract top talent.
     """)
