@@ -373,8 +373,8 @@ elif st.session_state.page_selection == "prediction":
     """)
 
     st.subheader("Unsupervised Learning: Data Science Salary Across Different Locations ")
-    data_for_clustering = dfnewCopy[['salary_in_usd', 'company_location_encoded']]
     dfnewCopy['company_location_encoded'] = encoder.fit_transform(dfnewCopy['company_location'])
+    data_for_clustering = dfnewCopy[['salary_in_usd', 'company_location_encoded']]
 
     inertia = []
     k_range = range(1, 11)
