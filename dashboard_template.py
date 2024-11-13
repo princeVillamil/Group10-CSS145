@@ -373,10 +373,12 @@ elif st.session_state.page_selection == "prediction":
     """)
 
     st.subheader("Unsupervised Learning: Data Science Salary Across Different Locations ")
-    df.head(), df.columns
     data_filtered = df[['salary_in_usd', 'company_location']].copy()
+    label_encoder = LabelEncoder()
+    label_encoder = LabelEncoder()
+    data_filtered.loc[:, 'company_location_encoded'] = label_encoder.fit_transform(data_filtered['company_location'])
+    data_filtered = data_filtered.drop(columns=['company_location'])
 
-    
     inertia = []
     k_range = range(1, 11)
     for k in k_range:
