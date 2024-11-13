@@ -373,28 +373,36 @@ elif st.session_state.page_selection == "prediction":
     """)
 
     st.subheader("Unsupervised Learning: Data Science Salary Across Different Locations ")
-    data_filtered = df[['salary_in_usd', 'company_location']].copy()
-    data_filtered.loc[:, 'company_location_encoded'] = encoder.fit_transform(data_filtered['company_location'])
-    data_filtered = data_filtered.drop(columns=['company_location'])
+    data_for_clustering = dfnewCopy[['salary_in_usd', 'company_location_encoded']]
+    dfnewCopy['company_location_encoded'] = encoder.fit_transform(dfnewCopy['company_location'])
 
     inertia = []
     k_range = range(1, 11)
     for k in k_range:
         kmeans = KMeans(n_clusters=k, random_state=42)
-        kmeans.fit(data_filtered)
+        kmeans.fit(data_for_clustering)
         inertia.append(kmeans.inertia_)
-
-    kmeans = KMeans(n_clusters=4, random_state=42)
-    data_filtered['cluster'] = kmeans.fit_predict(data_filtered)
-    data_filtered['company_location'] = encoder.inverse_transform(data_filtered['company_location_encoded'])
     
+    # Apply K-means clustering with an optimal number of clusters (e.g., 4 based on the elbow plot)
+    optimal_k = 4
+    kmeans = KMeans(n_clusters=optimal_k, random_state=42)
+    dfnewCopy['cluster'] = kmeans.fit_predict(data_for_clustering)
+    
+    # Optional: Map the encoded locations back to original values for interpretability
+    location_encoding = dict(zip(dfnewCopy['company_location'].unique(), encoder.transform(dfnewCopy['company_location'].unique())))
+    
+    # Display the location encoding for reference
+    for location, code in location_encoding.items():
+        print(f"{location}: {code}")
+    
+    # Plot the clusters based on salary and encoded location
     plt.figure(figsize=(12, 8))
     sns.scatterplot(
-        x='company_location_encoded',
-        y='salary_in_usd',
-        hue='cluster',
-        df=data_filtered,
-        palette='viridis',
+        x='company_location_encoded', 
+        y='salary_in_usd', 
+        hue='cluster', 
+        data=dfnewCopy, 
+        palette='viridis', 
         style='cluster',
         s=100
     )
