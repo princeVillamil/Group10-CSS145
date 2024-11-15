@@ -17,8 +17,8 @@ import seaborn as sns
 #######################
 # Page configuration
 st.set_page_config(
-    page_title="Dashboard Template", # Replace this with your Project's Title
-    page_icon="assets/icon.png", # You may replace this with a custom icon or emoji related to your project
+    page_title="GROUP 10 PROJECT", # Replace this with your Project's Title
+    page_icon="assets/iconic.png", # You may replace this with a custom icon or emoji related to your project
     layout="wide",
     initial_sidebar_state="expanded")
 
