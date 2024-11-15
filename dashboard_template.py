@@ -236,7 +236,7 @@ elif st.session_state.page_selection == "data_cleaning":
 
     with col[1]:
         st.markdown("Columns with Int values")
-        st.dataframe(cat_col, use_container_width=True, hide_index=True)
+        st.dataframe(num_col, use_container_width=True, hide_index=True)
 
 
 
