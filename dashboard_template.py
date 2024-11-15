@@ -38,7 +38,7 @@ def set_page_selection(page):
 with st.sidebar:
 
     # Sidebar Title (Change this with your project's title)
-    st.title('Dashboard Template')
+    st.title('GROUP 10 PROJECT')
 
     # Page Button Navigation
     st.subheader("Pages")
