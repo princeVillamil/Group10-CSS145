@@ -250,15 +250,14 @@ elif st.session_state.page_selection == "machine_learning":
     Linear regression is a model that uses multiple independent variables to predict a dependent variable, helping to understand how these variables influence the outcome. In this case, we chose experience level, company size, and remote work ratio as our independent variables, while salary (in USD) is our dependent variable, which we aim to predict. By using a linear regression model, we can explore how which of these factors have a greater impact when it comes to data science job salaries, providing highlights into salary trends within the industry.
     """)
 
-    st.subheader("Random Forest Regressor")
+    st.subheader("Supervised Data")
     st.markdown("""
-
-    **The Random Forest Regressor is a machine learning algorithm used to predict continuous values by combining multiple decision trees, forming what is known as a "forest." Each tree is trained independently on different random subsets of data and features.
-
-The process starts with data splitting, where the algorithm randomly selects subsets of both data points and features to create a variety of decision trees.
-
-Each tree is trained separately and makes its own prediction using its specific subset. When a final prediction is needed, the algorithm takes the predictions from all the trees in the forest and averages them to produce the final result.
-
+        **1. Predicting Salary:** Use features such as experience_level, remote_ratio, company_size, and employment_type to train a model that predicts salary_in_usd. This involves using a supervised learning algorithm such as linear regression where salary_in_usd is the overall dependent variable.
+        **2. Prediction of Changes in Salary:** Uses features such as experience_level, remote_ratio, and company_size to predict salary_in_usd. It will highlight how changes in these variables impact the possible changes in predicted salary.
+    """)
+    st.subheader("Unsupervised Data")
+    st.markdown("""
+        **1. Clustering Job Salaries by Company Location:** Graph will show clusters of job salaries based on company_location, visually representing how data science salaries vary across different regions.
     """)
 
 
